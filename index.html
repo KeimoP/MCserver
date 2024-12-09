@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minecraft Server Stats</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,5 +17,20 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // Generate snowflakes
+    const numSnowflakes = 50; // Adjust the number of snowflakes
+    const body = document.body;
+
+    for (let i = 0; i < numSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDelay = `${Math.random() * 10}s`;
+        snowflake.style.animationDuration = `${10 + Math.random() * 10}s`;
+        snowflake.style.opacity = `${0.3 + Math.random() * 0.7}`;
+        body.appendChild(snowflake);
+    }
+</script>
 </body>
 </html>
