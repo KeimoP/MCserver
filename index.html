@@ -4,33 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minecraft Server Stats</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Minecraft Server Stats</h1>
+  <header>
+    <div class="container">
+      <h1>Minecraft Server Stats</h1>
+      <p class="tagline">Stay updated with live server data</p>
+    </div>
+  </header>
+
+  <section class="container">
     <p><strong>Server IP:</strong> it24.feathermc.gg</p>
     <p><strong>Uptime:</strong> <span id="uptime">Loading...</span> (<span id="last-updated">Loading...</span>)</p>
+    <p><strong>Server Version:</strong> <span id="server-version">Loading...</span></p>
     <p><strong>Players Online:</strong> <span id="players-online">Loading...</span></p>
-    <p><strong>Player List:</strong> <span id="player-list">Loading...</span></p>
-  </div>
+    <div id="player-faces" class="faces-container"></div>
+    <div id="player-stats">
+      <h2>Player Playtimes</h2>
+      <ul id="playtime-list"></ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Powered by Minecraft Query API | Built with love 💚</p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Generate snowflakes
-    const numSnowflakes = 50; // Adjust the number of snowflakes
-    const body = document.body;
-
-    for (let i = 0; i < numSnowflakes; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.style.left = `${Math.random() * 100}vw`;
-        snowflake.style.animationDelay = `${Math.random() * 10}s`;
-        snowflake.style.animationDuration = `${10 + Math.random() * 10}s`;
-        snowflake.style.opacity = `${0.3 + Math.random() * 0.7}`;
-        body.appendChild(snowflake);
-    }
-</script>
 </body>
 </html>

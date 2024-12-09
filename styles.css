@@ -1,8 +1,8 @@
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Futuristic dark gradient */
-    color: #e0e0e0; /* Soft white for readability */
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #e0e0e0;
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
@@ -11,31 +11,17 @@ body {
 /* Snowflake styling */
 .snowflake {
     position: fixed;
-    top: -50px; /* Start above the viewport */
+    top: -50px;
     width: 20px;
     height: 20px;
     background: url('https://media.lordicon.com/icons/wired/flat/815-snow-flake.svg') no-repeat center center;
     background-size: contain;
-    pointer-events: none; /* Prevent interaction with snowflakes */
+    pointer-events: none;
     animation: fall linear infinite;
     z-index: -1;
+    opacity: 0.8;
 }
 
-/* Snowflake styling */
-.snowflake {
-    position: fixed;
-    top: -50px; /* Start above the viewport */
-    width: 20px;
-    height: 20px;
-    background: url('https://media.lordicon.com/icons/wired/flat/815-snow-flake.svg') no-repeat center center;
-    background-size: contain;
-    pointer-events: none; /* Prevent interaction with snowflakes */
-    animation: fall linear infinite;
-    z-index: -1;
-    opacity: 0.8; /* Slight transparency for realism */
-}
-
-/* Snowflake falling animation with angle */
 @keyframes fall {
     0% {
         transform: translateX(0) translateY(0) rotate(0deg);
@@ -54,53 +40,23 @@ body {
     }
 }
 
-/* Add slight randomness to each snowflake */
 .snowflake:nth-child(odd) {
-    animation-duration: 7s; /* Slightly slower animation */
+    animation-duration: 7s;
     animation-delay: calc(-1s * var(--i));
 }
 
 .snowflake:nth-child(even) {
-    animation-duration: 5s; /* Slightly faster animation */
+    animation-duration: 5s;
     animation-delay: calc(-0.5s * var(--i));
 }
 
-/* Utility Class for Containers */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Hyperlinks */
-a {
-    color: #00d4ff; /* Neon blue for links */
-    text-decoration: none;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-    font-weight: 500;
-    display: inline-block;
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #00ff85; /* Neon green underline */
-    transition: width 0.4s ease-in-out;
-}
-/* Animated Header */
+/* Header Styles */
 header {
-    background: linear-gradient(135deg, #2c5364, #0f2027); /* Dark IT theme */
+    background: linear-gradient(135deg, #2c5364, #0f2027);
     text-align: center;
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
@@ -124,128 +80,43 @@ header .tagline {
     }
 }
 
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    #nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px; /* Adjust based on your nav height */
-        left: 0;
-        right: 0;
-        padding: 1rem;
-    }
-
-    #nav-links.active {
-        display: flex;
-    }
+/* Content Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* Text Headers with Animation */
-section h2 {
-    font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
-    color: #ebebeb;
-    text-transform: uppercase;
-    margin-top: -0.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 0 10px #424546, 0 0 20px rgba(22, 26, 27, 0.6);
+.faces-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-/* Paragraph Text */
-p {
-    font-size: 1rem;
-    color: #e0e0e0;
-    line-height: 1.8;
-    margin: 1rem 0;
-    transition: color 0.3s ease, transform 0.3s ease;
+.faces-container img {
+    width: 64px;
+    height: 64px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #333;
 }
 
-p:hover {
-    transform: scale(1.02);
+#player-stats ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #contact-form .container {
-        padding: 0.5rem;
-    }
-
-    #contact-form h2 {
-        font-size: 1.8rem;
-    }
-
-    #contact-form .btn {
-        font-size: 1rem;
-        padding: 0.7rem;
-    }
+#player-stats li {
+    margin: 5px 0;
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
-    margin-top: 3rem;
     text-align: center;
     padding: 1rem 0;
     background: #333;
     color: white;
     font-size: 0.9rem;
-}
-
-/* Footer styling */
-footer {
-    text-decoration: none;
-    background: rgba(50,50,50, 0.7);
-    padding: 1rem 2rem;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for styling */
-}
-
-footer .container {
-    max-width: 1200px; /* Optional max width */
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start; /* Align text to the left */
-    align-items: center; /* Vertically centers the text */
-}
-
-/* Dynamic Buttons (Optional for Links Styled as Buttons) */
-button, .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
-    background: linear-gradient(135deg, #1e3740, #3f4344);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-button:hover, .btn:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #projects ul li a {
-        font-size: 1rem;
-        padding: 0.8rem;
-    }
-
-    button, .btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
 }
