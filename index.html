@@ -10,26 +10,27 @@
 <body>
   <header>
     <div class="container">
-      <h1>Minecraft Server Stats</h1>
+      <h1>IT-24 Minecraft Server Stats</h1>
       <p class="tagline">Stay updated with live server data</p>
     </div>
   </header>
 
-  <section class="container">
-    <p><strong>Server IP:</strong> it24.feathermc.gg</p>
-    <p><strong>Uptime:</strong> <span id="uptime">Loading...</span> (<span id="last-updated">Loading...</span>)</p>
+  <section id="server-stats">
+    <h2>Server Stats</h2>
+    <p><strong>Uptime:</strong> <span id="uptime">Loading...</span></p>
     <p><strong>Server Version:</strong> <span id="server-version">Loading...</span></p>
     <p><strong>Players Online:</strong> <span id="players-online">Loading...</span></p>
-    <div id="player-faces" class="faces-container"></div>
-    <div id="player-stats">
-      <h2>Player Playtimes</h2>
-      <ul id="playtime-list"></ul>
+    <p id="last-updated">Last updated at...</p>
+
+    <h3>Player Faces and Names</h3>
+    <div id="player-avatars" class="player-container">
+        <!-- Player faces will be dynamically inserted here -->
     </div>
-  </section>
+    </section>
 
   <footer>
     <div class="container">
-      <p>Powered by Minecraft Query API | Built with love 💚</p>
+      <p>Powered by Keimo's innovation | mcsrvstat API</p>
     </div>
   </footer>
 

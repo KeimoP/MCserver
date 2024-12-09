@@ -1,86 +1,14 @@
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #e0e0e0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* Futuristic dark gradient */
+    color: #e0e0e0; /* Soft white for readability */
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
 }
 
-/* Snowflake styling */
-.snowflake {
-    position: fixed;
-    top: -50px;
-    width: 20px;
-    height: 20px;
-    background: url('https://media.lordicon.com/icons/wired/flat/815-snow-flake.svg') no-repeat center center;
-    background-size: contain;
-    pointer-events: none;
-    animation: fall linear infinite;
-    z-index: -1;
-    opacity: 0.8;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateX(0) translateY(0) rotate(0deg);
-    }
-    25% {
-        transform: translateX(20px) translateY(25vh) rotate(90deg);
-    }
-    50% {
-        transform: translateX(-30px) translateY(50vh) rotate(180deg);
-    }
-    75% {
-        transform: translateX(40px) translateY(75vh) rotate(270deg);
-    }
-    100% {
-        transform: translateX(-20px) translateY(110vh) rotate(360deg);
-    }
-}
-
-.snowflake:nth-child(odd) {
-    animation-duration: 7s;
-    animation-delay: calc(-1s * var(--i));
-}
-
-.snowflake:nth-child(even) {
-    animation-duration: 5s;
-    animation-delay: calc(-0.5s * var(--i));
-}
-
-/* Header Styles */
-header {
-    background: linear-gradient(135deg, #2c5364, #0f2027);
-    text-align: center;
-    padding: 4rem 0;
-    position: relative;
-    overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-}
-
-header .tagline {
-    font-size: 1.4rem;
-    color: #f2f2f2;
-    margin-top: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Content Styles */
+/* Container for content */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -88,31 +16,61 @@ header .tagline {
     padding: 2rem;
 }
 
-.faces-container {
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+header .tagline {
+    font-size: 1.4rem;
+    color: #f2f2f2;
+    margin-top: 1rem;
+}
+
+/* Section for server stats */
+#server-stats {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#server-stats h2 {
+    font-size: 2.5rem;
+    color: #e0e0e0;
+}
+
+/* Styling player avatars and names */
+.player-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
-.faces-container img {
-    width: 64px;
-    height: 64px;
-    margin: 5px;
+.player {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    border: 2px solid #333;
+    margin-right: 15px;
 }
 
-#player-stats ul {
-    list-style: none;
-    padding: 0;
+.player img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-#player-stats li {
-    margin: 5px 0;
+.player .name {
+    font-size: 1.2rem;
+    color: #00d4ff;
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
     text-align: center;
     padding: 1rem 0;

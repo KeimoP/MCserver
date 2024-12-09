@@ -19,6 +19,7 @@ async function fetchServerStats() {
             document.getElementById('uptime').textContent = 'Offline';
             document.getElementById('players-online').textContent = 'N/A';
             document.getElementById('server-version').textContent = 'N/A';
+            document.getElementById('player-avatars').textContent = 'No players online';
             return;
         }
 
@@ -28,37 +29,37 @@ async function fetchServerStats() {
         document.getElementById('server-version').textContent = data.version || 'Unknown';
         document.getElementById('players-online').textContent = `${data.players.online || 0} / ${data.players.max || 0}`;
 
-        // Display player faces if players are online
-        const facesContainer = document.getElementById('player-faces');
-        facesContainer.innerHTML = ''; // Clear previous player faces
+        // Display player faces and names if players are online
+        const avatarsContainer = document.getElementById('player-avatars');
+        avatarsContainer.innerHTML = ''; // Clear previous player faces
         if (data.players.list && data.players.list.length > 0) {
             data.players.list.forEach(player => {
-                const img = document.createElement('img');
-                img.src = `https://minotar.net/avatar/${player}`;
-                img.alt = player;
-                img.title = player;
-                facesContainer.appendChild(img);
+                const playerDiv = document.createElement('div');
+                playerDiv.classList.add('player');
+
+                const playerImg = document.createElement('img');
+                playerImg.src = `https://minotar.net/avatar/${player}`;
+                playerImg.alt = player;
+
+                const playerName = document.createElement('span');
+                playerName.classList.add('name');
+                playerName.textContent = player;
+
+                playerDiv.appendChild(playerImg);
+                playerDiv.appendChild(playerName);
+
+                avatarsContainer.appendChild(playerDiv);
             });
         } else {
-            facesContainer.textContent = 'No players online';
+            avatarsContainer.textContent = 'No players online';
         }
 
-        // Display player playtimes
-        const playtimeList = document.getElementById('playtime-list');
-        playtimeList.innerHTML = ''; // Clear previous playtimes
-        if (data.players.list) {
-            data.players.list.forEach(player => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${player}: Playing time - Unknown`; // Replace with actual playtime if available
-                playtimeList.appendChild(listItem);
-            });
-        }
     } catch (error) {
         console.error('Error fetching server stats:', error);
         document.getElementById('uptime').textContent = 'Error';
         document.getElementById('players-online').textContent = 'N/A';
         document.getElementById('server-version').textContent = 'N/A';
-        document.getElementById('player-faces').textContent = 'Error fetching player data';
+        document.getElementById('player-avatars').textContent = 'Error fetching player data';
     }
 }
 
