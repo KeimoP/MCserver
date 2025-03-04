@@ -1,4 +1,4 @@
-const SERVER_API = 'https://api.mcsrvstat.us/2/it24.feathermc.gg';
+const SERVER_API = 'peaminister.aternos.me:37118';
 
 async function fetchServerStats() {
     try {
